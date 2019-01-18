@@ -1,0 +1,5 @@
+scotland.df <- read.table("scotvote.dat",header=T)
+library(devtools)
+devtools::use_data(scotland.df)
+primary <- read.csv('primary.csv')
+devtools::use_data(primary)
