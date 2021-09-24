@@ -1,5 +1,20 @@
+#' Summarize regression output from multinomial generalized linear models.
+#'
+#' An alternative to the summary() function.
+#'
+#' @param in.object The regression output from multinom().
+#' @param alpha A parameter defaulted to 0.05.
+#' @return The output is a list.
+#' @examples
+#' data(primary)
+#' attach(primary)
+#' library(nnet)
+#' primary.out <- multinom(PRIMVOTE ~ AGE + GENDER + EDUCATION + REGION +
+#'                          RELIGIOSITY + IDEOLOGY + RWA + TRUMPWIN, data=primary)
+#' glm.summary.multinom(primary.out)
+#'
 #' @export
-glm.summary.multinom <- function (in.object, alpha = 0.05) 
+glm.summary.multinom <- function (in.object, alpha = 0.05)
 {
   numcats <- length(in.object$lev)-1
   coefs <- round(summary(in.object)$coefficients,3)
